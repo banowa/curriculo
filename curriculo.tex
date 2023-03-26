@@ -1,0 +1,164 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\hypersetup{breaklinks=true,%
+pagecolor=white,%
+colorlinks=true,%
+linkcolor=blue,%
+urlcolor=blue}
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+\colorlet{contactblue}{blue}
+\colorlet{sectionblue}{blue} 
+\pagestyle{empty}
+
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\Huge#1}\\\end{center}}
+\newcommand{\program}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\contact}[1]{\begin{center}\color{contactblue}{\small#1}\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+  \begin{list}{}{
+      \setlength{\itemsep}{0pt}
+      \setlength{\labelsep}{0pt}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\leftmargin}{\tabin}
+      \setlength{\rightmargin}{\tabin}
+      \setlength{\listparindent}{0pt}
+      \setlength{\parsep}{0pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\partopsep}{0pt}
+      \setlength{\topsep}{#1}
+    }
+  \item[]
+}{\end{list}}
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+}{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+
+\newenvironment{resume_section}[1]{
+  \filbreak
+  \vspace{2\secsep}
+  \textsc{\large\color{sectionblue}#1}
+  \lineunder
+  \begin{tabbedsection}{\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{resume_subsection}[2][]{
+  \textbf{#2} \hfill {\footnotesize #1} \hspace{2em}
+  \begin{tabbedsection}{0.5\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{subitems}{
+  \renewcommand{\labelitemi}{-}
+  \begin{itemize}
+      \setlength{\labelsep}{1em}
+}{\end{itemize}}
+
+\newenvironment{resume_employer}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+
+
+
+\begin{document}
+
+\begin{resume_header}
+\name{Joao Pedro Banowits}
+\program{Analista NOC N3}
+\contact{\href{mailto:joao@lecco.com.br}{joao@lecco.com.br} \hspace{2cm}\href{tel:+5548988175298}{48-9-88175298} \hspace{2cm}\href{https://www.linkedin.com/in/banowits}{LinkedIn: /banowits}\hspace{2cm}\href{https://github.com/banowa}{GitHub: /banowa }}
+\end{resume_header}
+
+\begin{resume_section}{Perfil}
+  \begin{nospacetabbing}
+
+  \textbf{Objetivo}  \= Em busca de oportunidades desafiadoras para crescimento profissional.\\*
+  \textbf{Idiomas} \> Avançado/Fluente em ingles\\*
+  \textbf{Hobbies} \> NFTs, criptomoedas, design, programação\\*
+  \textbf{Habilidades} \> \hspace{0.4cm} Boa didática e oratória, Capacidade de agir sob pressão e autoaprendizagem\\*
+  \end{nospacetabbing}
+
+\end{resume_section}
+
+\begin{resume_section}{Experiencia}
+  \begin{resume_employer}{Hai Toyota}{Menor Aprendiz}{Florianópolis, SC}{2016/2017}
+    \item Organização, recebimento e armazenamento das peças
+    \item Emissões de notas fiscais e baixa, processos de devolução
+    \item Realização de relatórios relacionados à vendas diárias e do mês, formulários de test drive, atendimento ao cliente.
+  \end{resume_employer}
+  
+  \begin{resume_employer}{Hospitália Cirúrgica Catarinense}{Menor Aprendiz}{Capoeiras, SC}{2017/2018}
+    \item Controle de validade dos implantes e instrumentais, lotes, recebimento, conferência e envio dos mesmos
+    \item Emissão de notas fiscais e realização de processos de descarte e conserto
+ \end{resume_employer}
+ 
+\begin{resume_employer}{Neorede Telecom}{N2, N3}{Biguaçu, SC}{2019/2021}
+    \item Suporte avançado empresarial e licitação, configuração de VoIP, portabilidade telefonica, configuração de mikrotik, p2p, via-rádio, provisionamento de ONUs, ONTS, utilizando PabX, Asterisk
+    \item Monitoramento de VLANs, e monitoramento de dados em geral.Utilizando principalmente ZABBIX, GRAFANA e o software The Dude
+
+      \end{resume_employer}
+\end{resume_section}
+
+
+\begin{resume_section}{Realizaçoes e projetos pessoais}
+  \begin{resume_subsection}[(2021/2022)]{NFTs, Trading e programação}
+  \begin{subitems}
+    \item Desenvolvimento de smart-contract escrito na linguagem de programação Solidity para implementar na rede Ethereum para a criação de 6965 NFTs, o projeto se chama GM Dragons e está disponível até o momento no marketplace OpenSea, gerou mais de 150 mil reais em volume.
+    \item Inúmeros airdrops retroativos em criptomoedas por volume de trading alto.
+    \item Criação e acompanhamento de comunidades em projetos NFTs, assumindo funçoes de desenvolvedor e moderador
+    \item Desenvolvimento de currículo na linguagem LaTeX (Disponível em meu GitHub)
+    \item Aprendizado contínuo da linguagem JavaScript, atualmente buscando aprender sobre ReactJS, VueJS e TypeScript.
+    \end{subitems}
+  \end{resume_subsection}
+
+\begin{resume_section}{Educacao}
+  \begin{resume_subsection}[Sao josé, SC]{Universidade Estácio de Sá}
+    \begin{subitems}
+      \item Engenharia Civil
+      \item 2017-2019 (Interrompido)
+       \end{subitems}
+  \end{resume_subsection}
+    
+  \begin{resume_subsection}[Online]{Harvard University}
+    \begin{subitems}
+      \item CS50 Introduction to computer science
+      \item Em andamento
+     \end{subitems}
+    \begin{resume_subsection}[Online]{Codecademy}
+    \begin{subitems}
+      \item Python 3
+      \item HTML
+    \item JavaScript
+      \item CSS
+     \end{subitems}   
+  \end{resume_subsection}
+    \end{resume_subsection}
+\end{resume_section}
+
+\end{resume_section}
+\end{document}
